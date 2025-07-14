@@ -1,4 +1,7 @@
+from unittest import expectedFailure
+
 import pytest
+from pyexpat.errors import messages
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -31,14 +34,33 @@ def test_bill_pay(payee_name, address, city, state, zip_code, phone,
     bill_pay_page.enter_account_information(account_number, verify_account_number, amount, from_account)
     bill_pay_page.send_payment()
 
-    # Enhanced logic to detect outcome:
-    if bill_pay_page.has_verify_account_mismatch_error():
-        result = "failure"
-    elif bill_pay_page.has_negative_amount_error():
-        result = "failure"
-    elif bill_pay_page.has_success_message():
-        result = "success"
+    if expected=="success":
+        message=bill_pay_page.has_success_message()
+        assert message== True ,f"This is the message shown {message}"
+    elif expected=="account_mismatch_error":
+        messages=bill_pay_page.has_verify_account_mismatch_error()
+        assert messages== True ,f"This is the message shown {messages}"
+    elif expected=="failure":
+        message=bill_pay_page.has_amount_error()
+        assert message== False ,f"This is the message shown {message}"
+    elif expected=="negative_amount_error":
+        message=bill_pay_page.has_negative_amount_error()
+        assert message== True ,f"This is the message shown {message}"
     else:
-        result = "failure"
-
-    assert result == expected
+        print("Other errors")
+        assert False
+    #
+    #
+    # # Enhanced logic to detect outcome:
+    # if bill_pay_page.has_verify_account_mismatch_error():
+    #     result = "failure"
+    # elif bill_pay_page.has_negative_amount_error():
+    #     result = "failure"
+    # elif bill_pay_page.has_amount_error():
+    #     result = "failure"
+    # elif bill_pay_page.has_success_message():
+    #     result = "success"
+    # else:
+    #     result = "failure"
+    #
+    # assert result == expected

@@ -1,4 +1,5 @@
 payee_name,address,city,state,zip_code,phone,account_number,verify_account_number,amount,from_account,expected
 shyam,Kathmandu,Nepal,445,10001,9872561782,32325,32325,32,16563,success
-shyam,Kathmandu,Nepal,445,10001,9872561782,32325,2333,32,16563,failure
-shyam,Kathmandu,Nepal,445,10001,9872561782,32325,32325,-32,16563,failure
+shyam,Kathmandu,Nepal,445,10001,9872561782,32325,2333,32,16563,account_mismatch_error
+shyam,Kathmandu,Nepal,445,10001,9872561782,32325,32325,-32,16563,negative_amount_error
+shyam,Kathmandu,Nepal,445,10001,9872561782,32325,32325,abcd,16563,failure

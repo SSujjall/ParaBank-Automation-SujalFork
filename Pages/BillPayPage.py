@@ -66,6 +66,13 @@ class BillPayPage:
             return element.is_displayed()
         except Exception:
             return False
+    def has_amount_error(self):
+        try:
+            element = self.driver.find_element(By.ID, "verify_amount_error")
+            return element.is_displayed()
+        except Exception:
+            return False
+
 
     def has_negative_amount_error(self):
         try:
