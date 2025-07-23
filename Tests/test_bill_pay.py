@@ -21,7 +21,7 @@ def test_bill_pay(payee_name, address, city, state, zip_code, phone,
                   account_number, verify_account_number, amount, from_account, expected, driver):
 
     login_page = LoginPage(driver)
-    login_page.login("shyam2", "shyam")
+    login_page.login("shyam2", "1234")
 
     bill_pay_page = BillPayPage(driver)
     bill_pay_page.load()
