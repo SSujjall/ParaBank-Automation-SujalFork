@@ -26,6 +26,8 @@ class BillPayPageLocators:
     success_message = (By.CLASS_NAME, 'title')
 
     # Validation messages for "Verify Account #"
-    verify_account_empty_error = (By.ID, 'validationModel-verifyAccount-empty')
-    verify_account_invalid_error = (By.ID, 'validationModel-verifyAccount-invalid')
-    verify_account_mismatch_error = (By.CLASS_NAME, 'error')
+    # verify_account_empty_error = (By.ID, 'validationModel-verifyAccount-empty')
+    verify_account_empty_error = (By.CLASS_NAME, 'error')
+    # verify_account_invalid_error = (By.ID, 'validationModel-verifyAccount-invalid')
+    # verify_account_mismatch_error = (By.CLASS_NAME, 'error')
+    # verify_amount_error = (By.ID,'validationModel-amount-invalid')
